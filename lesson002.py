@@ -22,9 +22,10 @@ def increment_with_lock():
             race_counter = temp + 1
             print(race_counter)
 
+
 if __name__ == '__main__':
-    t1 = threading.Thread(target=increment)
-    t2 = threading.Thread(target=increment)
+    t1 = threading.Thread(target=increment_with_lock)
+    t2 = threading.Thread(target=increment_with_lock)
 
     t1.start()
     t2.start()
