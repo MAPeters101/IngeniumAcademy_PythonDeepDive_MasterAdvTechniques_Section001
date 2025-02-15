@@ -6,7 +6,7 @@ import multiprocessing
 def thread_function(thread_id):
     print(f"Thread-{thread_id} starting")
     time.sleep(2)
-    print(f"Thread-{thread_id} starting")
+    print(f"Thread-{thread_id} completed")
 
 
 def process_function(process_id):
@@ -16,7 +16,7 @@ def process_function(process_id):
     for i in range(2):
         thread = threading.Thread(target=thread_function, args=(i,))
         threads.append(thread)
-        threads.start()
+        thread.start()
 
     for thread in threads:
         thread.join()
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     processes = []
     for i in range(2):  # Spawn 2 processes
         process = multiprocessing.Process(target=process_function, args=(i,))
-        process.append(process)
+        processes.append(process)
         process.start()
 
     for process in processes:
