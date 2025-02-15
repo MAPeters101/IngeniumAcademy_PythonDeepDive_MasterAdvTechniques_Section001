@@ -21,3 +21,14 @@ def process_function(process_id):
     print(f"Process-{process_id} completed")
 
 
+if __name__ == '__main__':
+    processes = []
+    for i in range(2):  # Spawn 2 processes
+        process = multiprocessing.Process(target=process_function, args=(i,))
+        process.append(process)
+        process.start()
+
+    for process in processes:
+        process.join()
+
+    print("All process completed.")
