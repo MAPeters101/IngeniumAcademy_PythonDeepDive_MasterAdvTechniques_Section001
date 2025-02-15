@@ -1,3 +1,6 @@
+import time
+import threading
+import multiprocessing
 
 
 def thread_function(thread_id):
